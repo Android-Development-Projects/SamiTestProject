@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">SamiTestProject</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="please_login_to_your_account_to_continue_with_ltg">Please Login to your account to continue with LTG.</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="logo">Logo</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="no_internet">No Internet</string>
+    <string name="enable_wifi">Enable Wifi and Try Again!</string>
+    <string name="settings">Settings</string>
+    <string name="or">OR</string>
+    <string name="facebook">Facebook</string>
+    <string name="gmail">Gmail</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="create_account"><u>Create Account</u></string>
+    <string name="miami">Miami</string>
+    <string name="let_s_eat_quality_food_128523">Let\'s eat \nQuality food 😋</string>
+    <string name="categories">Categories</string>
+    <string name="see_all">See All</string>
+    <string name="featured_restaurant">Featured Restaurant</string>
+    <string name="category_name">Category Name</string>
+    <string name="italian">Italian</string>
+    <string name="lebanese">Lebanese</string>
+    <string name="chinese">Chinese</string>
+    <string name="piccola_cucina">Piccola Cucina</string>
+    <string name="address">583 Lilac St.\n Massapequa, NY 11758</string>
+    <string name="empire_streak_hotel">Empire Streak Hotel</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favourite">Favourite</string>
+    <string name="profile">Profile</string>
+    <string name="fab">FAB</string>
+    <string name="search_query_hint">Search restaurant</string>
+</resources>

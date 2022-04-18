@@ -104,9 +104,9 @@ class LoginFragment : Fragment() {
                     )
                     binding.progressBar.isVisible = false
                     }catch (e: Exception){
-                        Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_LONG)
                     }
-                } else {
+                } else if(!response.isSuccessful) {
                     Toast.makeText(requireContext(),
                         "Email or Password is not correct!\n Try again!!",
                         Toast.LENGTH_LONG).show()
