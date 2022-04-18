@@ -11,7 +11,6 @@ import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -59,14 +58,8 @@ class LoginFragment : Fragment() {
                     if (!editTextEmail.text.isNullOrEmpty() && !editTextPassword.text.isNullOrEmpty()) {
                         email = editTextEmail.text.toString()
                         password = editTextPassword.text.toString()
-                        val loginDetails = Login(
-                            "test.token.test",
-                            "ANDROID",
-                            "password",
-                            password,
-                            email
-                        )
-                        checkInternetStatus(loginDetails)
+
+                        checkInternetStatus(email,password)
                     } else {
                         showToast("Input Fields are Empty.")
                     }
@@ -77,7 +70,7 @@ class LoginFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun checkInternetStatus(loginDetails: Login) {
+    private fun checkInternetStatus(email: String, password: String) {
         if (!isOnline()) {
             showToast(getString(R.string.no_internet))
             val snack = Snackbar.make(requireView(),
@@ -88,11 +81,18 @@ class LoginFragment : Fragment() {
             }
             snack.show()
         } else if (isOnline()) {
-            checkCredentials(loginDetails)
+            checkCredentials(email,password)
         }
     }
 
-    private fun checkCredentials(loginDetails: Login) {
+    private fun checkCredentials(email: String, password: String) {
+        val loginDetails = Login(
+            "test.token.test",
+            "ANDROID",
+            "password",
+            password,
+            email
+        )
         mainViewModel.pushPost(loginDetails)
         mainViewModel.myResponse.observe(viewLifecycleOwner) { response ->
 
@@ -104,12 +104,10 @@ class LoginFragment : Fragment() {
                     )
                     binding.progressBar.isVisible = false
                     }catch (e: Exception){
-                        Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_LONG)
+                        Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_SHORT)
                     }
                 } else if(!response.isSuccessful) {
-                    Toast.makeText(requireContext(),
-                        "Email or Password is not correct!\n Try again!!",
-                        Toast.LENGTH_LONG).show()
+                    showToast("Email or Password is not correct!\n Try again!!")
                     binding.apply {
                         editTextEmail.setText("")
                         editTextPassword.setText("")
